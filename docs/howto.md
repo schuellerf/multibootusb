@@ -37,6 +37,7 @@ submenu "Ubuntu 16.04 ->" {
   iso_path="/boot/isos/ubuntu-16.04.1-desktop-i386.iso"
   export iso_path
   search --set=root --file "$iso_path"
+  rmmod tpm
   loopback loop "$iso_path"
   root=(loop)
   configfile /boot/grub/loopback.cfg
@@ -93,6 +94,7 @@ Which could be converted as:
 ```
 submenu "Debian 8 Live ->" {
   iso_path="/boot/isos/debian-live-8.7.1-i386-standard.iso"
+  rmmod tpm
   loopback loop "$iso_path"
   root=(loop)
   menuentry "Live (586)" {
